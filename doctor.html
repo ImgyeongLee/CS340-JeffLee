@@ -12,7 +12,7 @@
 
 		<header class="header-title">JeffLee Hospital Website</header>
 		<section class="menu-bar"><ul>
-			<li><button class="menu-button" type="button">Home</button></li>
+      <li><button class="menu-button" type="button">Home</button></li>
 			<li><button class="menu-button" type="button"><a href="patient.html">Patient</a></button></li>
 			<li><button class="menu-button" type="button"><a href="medication.html">Medication</a></button></li>
 			<li><button class="menu-button" type="button"><a href="diagnosis.html">Diagnosis</a></button></li>
@@ -21,36 +21,28 @@
 		</ul></section>
 
 		<main class="main-section">
-			<h1>Modify Diagnosis Entity</h1>
+			<h1>Modify Doctor Entity</h1>
 
       <fieldset class="format" id="format-box">
-        <legend class="format-label">INSERT (diagnosis)</legend>
-      	<p class="format-header">Add a new diagnosis data!</p>
+        <legend class="format-label">INSERT (Doctor)</legend>
+      	<p class="format-header">Add a new Pharmacy data!</p>
       	<div>
-          <label for="diagnosis">Medication ID</label>
+          <label for="medication">Doctor ID</label>
         	<input type="textarea" class="input-box">
-        	<label for="diagnosis">Patient ID</label>
+        	<label for="medication">Doctor Name</label>
   				<input type="textarea" class="input-box">
-          <!-- We need to add date of birth in here -->
-          <label for="diagnosis">Pharmacy ID</label>
+          <label for="medication">Contact</label>
   				<input type="textarea" class="input-box">
-          <label for="diagnosis">Doctor ID</label>
-  				<input type="textarea" class="input-box">
-          <label for="diagnosis">Description</label>
-  				<input type="textarea" class="input-box">
-          <label for="diagnosis">Charge</label>
-  				<input type="textarea" class="input-box">
-          <label for="diagnosis">Date</label>
-  				<input type="textarea" class="input-box">
+
       	</div>
   			<p class="button-container"><input type="submit" value="Add" class="modal-button"></p>
   		</fieldset>
 
       <fieldset class="format" id="format-box">
-        <legend class="format-label">DELETE (Diagnosis)</legend>
-      	<p class="format-header">Delete the diagnosis data</p>
+        <legend class="format-label">DELETE (Pharmacy)</legend>
+      	<p class="format-header">Delete the Doctor data</p>
       	<div>
-          <label for="diagnosis">Diagnosis ID</label>
+          <label for="medication">Doctor ID</label>
         	<input type="textarea" class="input-box">
       	</div>
   			<p class="button-container"><input type="submit" value="Delete" class="modal-button"></p>
