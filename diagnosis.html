@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>JeffLee Hospital Website</title>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/2441406a2d.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="./public/style.css" media="screen">
+	</head>
+
+	<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+
+		<header class="header-title">JeffLee Hospital Website</header>
+		<section class="menu-bar"><ul>
+			<li><button class="menu-button" type="button">Home</button></li>
+			<li><button class="menu-button" type="button">Patient</button></li>
+			<li><button class="menu-button" type="button">Medication</button></li>
+			<li><button class="menu-button" type="button">Diagnosis</button></li>
+			<li><button class="menu-button" type="button">Doctor</button></li>
+			<li><button class="menu-button" type="button">Pharmacy</button></li>
+		</ul></section>
+
+		<main class="main-section">
+			<h1>Modify Diagnosis Entity</h1>
+
+      <fieldset class="format" id="format-box">
+        <legend class="format-label">INSERT (diagnosis)</legend>
+      	<p class="format-header">Add a new diagnosis data!</p>
+      	<div>
+          <label for="diagnosis">Medication ID</label>
+        	<input type="textarea" class="input-box">
+        	<label for="diagnosis">Patient ID</label>
+  				<input type="textarea" class="input-box">
+          <!-- We need to add date of birth in here -->
+          <label for="diagnosis">Pharmacy ID</label>
+  				<input type="textarea" class="input-box">
+          <label for="diagnosis">Doctor ID</label>
+  				<input type="textarea" class="input-box">
+          <label for="diagnosis">Description</label>
+  				<input type="textarea" class="input-box">
+          <label for="diagnosis">Charge</label>
+  				<input type="textarea" class="input-box">
+          <label for="diagnosis">Date</label>
+  				<input type="textarea" class="input-box">				
+      	</div>
+  			<p class="button-container"><input type="submit" value="Add" class="modal-button"></p>
+  		</fieldset>
+
+      <fieldset class="format" id="format-box">
+        <legend class="format-label">Delete (diagnosis)</legend>
+      	<p class="format-header">Delete the diagnosis data</p>
+      	<div>
+          <label for="diagnosis">Diagnosis ID</label>
+        	<input type="textarea" class="input-box">
+      	</div>
+  			<p class="button-container"><input type="submit" value="Delete" class="modal-button"></p>
+  		</fieldset>
+
+		</main>
+
+	</body>
+
+</html>
