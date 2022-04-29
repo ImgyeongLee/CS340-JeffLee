@@ -146,3 +146,11 @@ a {
   background: rgba(237, 163, 136, 1);
   transition-duration: 0.1s;
 }
+
+#insert-box {
+  display: none;
+}
+
+#delete-box {
+  display: none;
+}

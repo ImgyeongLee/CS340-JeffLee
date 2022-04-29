@@ -6,6 +6,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 		<script src="https://kit.fontawesome.com/2441406a2d.js" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="./public/style.css" media="screen">
+		<script src="./public/script.js" charset="utf-8" defer></script>
 	</head>
 
 	<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
@@ -13,25 +14,25 @@
 		<header class="header-title"><i class="fa-solid fa-house-medical"></i>  JeffLee Hospital Website</header>
 		<div class="wrapper">
 		<section class="menu-bar"><ul>
-      <li><button class="menu-button home-button" type="button">Home</button></li>
-			<li><button class="menu-button" type="button"><a href="patient.html">Patient</a></button></li>
-			<li><button class="menu-button" type="button"><a href="medication.html">Medication</a></button></li>
-			<li><button class="menu-button" type="button"><a href="diagnosis.html">Diagnosis</a></button></li>
-			<li><button class="menu-button" type="button"><a href="doctor.html">Doctor</a></button></li>
-			<li><button class="menu-button" type="button"><a href="pharmacy.html">Pharmacy</a></button></li>
+      <li><button onclick="goHome()" class="menu-button home-button" type="button">Home</button></li>
+			<li><button onclick="goPatient()" class="menu-button" type="button">Patient</button></li>
+			<li><button onclick="goMedi()" class="menu-button" type="button">Medication</button></li>
+			<li><button onclick="goDiagnosis()" class="menu-button" type="button">Diagnosis</button></li>
+			<li><button onclick="goDoctor()" class="menu-button" type="button">Doctor</button></li>
+			<li><button onclick="goPharm()" class="menu-button" type="button">Pharmacy</button></li>
 		</ul></section>
 
 		<main class="main-section">
 			<h1>Modify Pharmacy Entity</h1>
 
 			<div class="function-container">
-					<button class="function-button" type="button">INSERT</button>
-					<button class="function-button" type="button">DELETE</button>
-					<button class="function-button" type="button">SEARCH</button>
-					<button class="function-button" type="button">UPDATE</button>
+					<button class="function-button" type="button" onclick="openInsert()">INSERT</button>
+					<button class="function-button" type="button" onclick="openDelete()">DELETE</button>
+					<button class="function-button" type="button" onclick="openSearch()">SEARCH</button>
+					<button class="function-button" type="button" onclick="openUpdate()">UPDATE</button>
 			</div>
 
-      <fieldset class="format" id="format-box">
+      <fieldset class="format" id="insert-box">
         <legend class="format-label">INSERT (Pharmacy)</legend>
       	<p class="format-header">Add a new Pharmacy data!</p>
       	<div>
@@ -44,19 +45,20 @@
           <label for="medication">Contact</label>
   				<input type="textarea" class="input-box">
       	</div>
-  			<p class="button-container"><input type="submit" value="Add" class="modal-button"> <input type="submit" value="Cancel" class="cancel-button"></p>
+  			<p class="button-container"><input type="submit" value="Add" class="modal-button">
+					<input type="submit" value="Cancel" class="cancel-button" onclick="closeInsert()"></p>
   		</fieldset>
 
-      <fieldset class="format" id="format-box">
+      <fieldset class="format" id="delete-box">
         <legend class="format-label">DELETE (Pharmacy)</legend>
       	<p class="format-header">Delete the Pharmacy data</p>
       	<div>
           <label for="medication">Pharmacy ID</label>
         	<input type="textarea" class="input-box">
       	</div>
-  			<p class="button-container"><input type="submit" value="Delete" class="modal-button"> <input type="submit" value="Cancel" class="cancel-button"></p>
+				<p class="button-container"><input type="submit" value="Delete" class="modal-button">
+					<input type="submit" value="Cancel" class="cancel-button" onclick="closeDelete()"></p>
   		</fieldset>
-
 		</main>
 		</div>
 	</body>
