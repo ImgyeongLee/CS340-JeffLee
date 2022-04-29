@@ -30,6 +30,7 @@ ul {
 
 .format {
   width: 200px;
+  margin-bottom: 5px;
 }
 
 .format-label {
@@ -42,6 +43,34 @@ ul {
   width: 120px;
   margin-right: 10px;
   text-align: center;
+}
+
+.function-container {
+  width: 250px;
+}
+
+.function-button {
+  cursor: pointer;
+  background: rgba(125, 154, 190, 1);
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  width: 120px;
+  padding: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 0px 0px 5px 0px;
+}
+
+.function-button:hover {
+  background: rgba(99, 122, 171, 1);
+  transition-duration: 0.2s;
+}
+
+.function-button:active {
+  background: rgba(75, 97, 143, 1);
+  transition-duration: 0.1s;
 }
 
 a {
@@ -80,6 +109,28 @@ a {
   border: none;
   font-size: 15px;
   color: rgba(16, 20, 48, 1);
+}
+
+.cancel-button {
+  cursor: pointer;
+  background: rgba(178, 179, 185, 1);
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.cancel-button:hover {
+  background: rgba(122, 125, 143, 1);
+  transition-duration: 0.2s;
+}
+
+.cancel-button:active {
+  background: rgba(99, 102, 118, 1);
+  transition-duration: 0.1s;
 }
 
 .home-button {
