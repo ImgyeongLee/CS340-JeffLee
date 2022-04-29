@@ -147,6 +147,10 @@ a {
   transition-duration: 0.1s;
 }
 
+.desc {
+  width: 1000px;
+}
+
 #insert-box {
   display: none;
 }
