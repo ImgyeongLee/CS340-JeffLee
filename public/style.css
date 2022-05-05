@@ -151,10 +151,22 @@ a {
   width: 1000px;
 }
 
+.search-input-box {
+  width: 180px;
+}
+
 #insert-box {
   display: none;
 }
 
 #delete-box {
+  display: none;
+}
+
+#search-box {
+  display: none;
+}
+
+#update-box {
   display: none;
 }

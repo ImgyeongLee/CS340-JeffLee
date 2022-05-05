@@ -34,13 +34,12 @@
 
       <fieldset class="format" id="insert-box">
         <legend class="format-label">INSERT (Medication)</legend>
-      	<p class="format-header">Add a new medication data!</p>
+      	<p class="format-header">Add a new Medication data!</p>
       	<div>
           <label for="medication">Medication Name</label>
         	<input type="textarea" class="input-box">
         	<label for="medication">Manufacturer</label>
   				<input type="textarea" class="input-box">
-
       	</div>
 				<p class="button-container"><input type="submit" value="Add" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeInsert()"></p>
@@ -55,6 +54,35 @@
       	</div>
 				<p class="button-container"><input type="submit" value="Delete" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeDelete()"></p>
+  		</fieldset>
+
+			<fieldset class="format" id="search-box">
+        <legend class="format-label">SELECT (Medication)</legend>
+      	<div>
+					<select name="pharmacy" id="selection">
+  					<option value="option1">Medication ID</option>
+  					<option value="option2">Medication Name</option>
+						<option value="option3">Manufacturer</option>
+					</select>
+					<p><input type="textarea" class="search-input-box" placeholder="Type your input"></p>
+      	</div>
+				<p class="button-container"><input type="submit" value="Search" class="modal-button">
+					<input type="submit" value="Cancel" class="cancel-button" onclick="closeSearch()"></p>
+  		</fieldset>
+
+			<fieldset class="format" id="update-box">
+        <legend class="format-label">UPDATE (Medication)</legend>
+      	<p class="format-header">Update a Medication data!</p>
+      	<div>
+					<label for="medication">Medication ID</label>
+        	<input type="textarea" class="input-box">
+					<label for="medication">Medication Name</label>
+        	<input type="textarea" class="input-box">
+        	<label for="medication">Manufacturer</label>
+  				<input type="textarea" class="input-box">
+      	</div>
+  			<p class="button-container"><input type="submit" value="Update" class="modal-button">
+					<input type="submit" value="Cancel" class="cancel-button" onclick="closeUpdate()"></p>
   		</fieldset>
 
 		</main>

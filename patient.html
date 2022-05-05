@@ -34,13 +34,14 @@
 
       <fieldset class="format" id="insert-box">
         <legend class="format-label">INSERT (Patient)</legend>
-      	<p class="format-header">Add a new patient data!</p>
+      	<p class="format-header">Add a new Patient data!</p>
       	<div>
           <label for="patient">First Name</label>
         	<input type="textarea" class="input-box">
         	<label for="patient">Last Name</label>
   				<input type="textarea" class="input-box">
-          <!-- We need to add date of birth in here -->
+					<p><label for="patient">Birth Date</label></p>
+          <p><input type="date" value="xxx" min="yyy" max="zzz"></p>
           <label for="patient">Address</label>
   				<input type="textarea" class="input-box">
           <label for="patient">Email</label>
@@ -54,13 +55,54 @@
 
       <fieldset class="format" id="delete-box">
         <legend class="format-label">DELETE (Patient)</legend>
-      	<p class="format-header">Delete the patient data</p>
+      	<p class="format-header">Delete the Patient data</p>
       	<div>
           <label for="patient">Patient ID</label>
         	<input type="textarea" class="input-box">
       	</div>
 				<p class="button-container"><input type="submit" value="Delete" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeDelete()"></p>
+  		</fieldset>
+
+			<fieldset class="format" id="search-box">
+        <legend class="format-label">SELECT (Patient)</legend>
+      	<div>
+					<select name="patient" id="selection">
+						<option value="option1">Patient ID</option>
+  					<option value="option2">First Name</option>
+  					<option value="option3">Last Name</option>
+					</select>
+					<p><input type="textarea" class="search-input-box" placeholder="Type your input"></p>
+      	</div>
+				<p>OR</p>
+				<div>
+					<p><input type="date" value="xxx" min="yyy" max="zzz"></p>
+      	</div>
+				<p class="button-container"><input type="submit" value="Search" class="modal-button">
+					<input type="submit" value="Cancel" class="cancel-button" onclick="closeSearch()"></p>
+  		</fieldset>
+
+			<fieldset class="format" id="update-box">
+        <legend class="format-label">UPDATE (Patient)</legend>
+      	<p class="format-header">Update a Patient data!</p>
+      	<div>
+					<label for="patient">Patient ID</label>
+        	<input type="textarea" class="input-box">
+					<label for="patient">First Name</label>
+        	<input type="textarea" class="input-box">
+        	<label for="patient">Last Name</label>
+  				<input type="textarea" class="input-box">
+					<p><label for="patient">Birth Date</label></p>
+          <p><input type="date" value="xxx" min="yyy" max="zzz"></p>
+          <label for="patient">Address</label>
+  				<input type="textarea" class="input-box">
+          <label for="patient">Email</label>
+  				<input type="textarea" class="input-box">
+          <label for="patient">Phone number</label>
+  				<input type="textarea" class="input-box">
+      	</div>
+  			<p class="button-container"><input type="submit" value="Update" class="modal-button">
+					<input type="submit" value="Cancel" class="cancel-button" onclick="closeUpdate()"></p>
   		</fieldset>
 
 		</main>
