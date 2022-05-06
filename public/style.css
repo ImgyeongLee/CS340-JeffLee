@@ -63,6 +63,29 @@ ul {
   margin: 0px 0px 5px 0px;
 }
 
+.main-section {
+  width: 400px;
+}
+
+.table-container {
+  margin-top: 50px;
+}
+
+table, th, td {
+  border: 1px solid rgb(64,101,146);
+  background-color: white;
+}
+
+th {
+  font-weight: bold;
+  padding: 5px;
+}
+
+td {
+  font-weight: normal;
+  padding: 5px;
+}
+
 .function-button:hover {
   background: rgba(99, 122, 171, 1);
   transition-duration: 0.2s;

@@ -34,13 +34,12 @@
 
       <fieldset class="format" id="insert-box">
         <legend class="format-label">INSERT (diagnosis)</legend>
-      	<p class="format-header">Add a new diagnosis data!</p>
+      	<p class="format-header">Add a new Diagnosis data!</p>
       	<div>
           <label for="diagnosis">Medication ID</label>
         	<input type="textarea" class="input-box">
         	<label for="diagnosis">Patient ID</label>
   				<input type="textarea" class="input-box">
-          <!-- We need to add date of birth in here -->
           <label for="diagnosis">Pharmacy ID</label>
   				<input type="textarea" class="input-box">
           <label for="diagnosis">Doctor ID</label>
@@ -49,8 +48,8 @@
   				<input type="textarea" class="input-box">
           <label for="diagnosis">Charge</label>
   				<input type="textarea" class="input-box">
-          <label for="diagnosis">Date</label>
-  				<input type="textarea" class="input-box">
+					<p><label for="diagnosis">Date</label></p>
+          <p><input type="date" value="xxx" min="yyy" max="zzz"></p>
       	</div>
 				<p class="button-container"><input type="submit" value="Add" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeInsert()"></p>
@@ -58,7 +57,7 @@
 
       <fieldset class="format" id="delete-box">
         <legend class="format-label">DELETE (Diagnosis)</legend>
-      	<p class="format-header">Delete the diagnosis data</p>
+      	<p class="format-header">Delete the Diagnosis data</p>
       	<div>
           <label for="diagnosis">Diagnosis ID</label>
         	<input type="textarea" class="input-box">
@@ -67,20 +66,22 @@
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeDelete()"></p>
 			</fieldset>
 
-		
+
 	  <fieldset class="format" id="search-box">
         <legend class="format-label">SELECT (Diagnosis)</legend>
       	<div>
 					<select name="diagnosis" id="selection">
   					<option value="option1">Diagnosis ID</option>
-					<option value="option2">Description</option>
+						<option value="option1">Patient ID</option>
+						<option value="option1">Doctor ID</option>
+						<option value="option1">Pharmacy ID</option>
 					</select>
 					<p><input type="textarea" class="search-input-box" placeholder="Type your input"></p>
       	</div>
 				<p class="button-container"><input type="submit" value="Search" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeSearch()"></p>
   		</fieldset>
-		
+
 		<fieldset class="format" id="update-box">
         <legend class="format-label">UPDATE (Diagnosis)</legend>
       	<p class="format-header">Update a Diagnosis data!</p>
@@ -91,7 +92,6 @@
         	<input type="textarea" class="input-box">
           <label for="diagnosis">Patient ID</label>
   				<input type="textarea" class="input-box">
-          <!-- We need to add date of birth in here -->
           <label for="diagnosis">Pharmacy ID</label>
   				<input type="textarea" class="input-box">
           <label for="diagnosis">Doctor ID</label>
@@ -100,14 +100,42 @@
   				<input type="textarea" class="input-box">
           <label for="diagnosis">Charge</label>
   				<input type="textarea" class="input-box">
-          <label for="diagnosis">Date</label>
-  				<input type="textarea" class="input-box">
+					<p><label for="diagnosis">Date</label></p>
+          <p><input type="date" value="xxx" min="yyy" max="zzz"></p>
       	</div>
   			<p class="button-container"><input type="submit" value="Update" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeUpdate()"></p>
   		</fieldset>
-		
+
 		</main>
+		<div class="table-container">
+			<table class="diagnosis-table">
+	      <thead class="table-header">
+	        <tr>
+	          <th>diagnosis_id*</th>
+	          <th>medication_id</th>
+	          <th>patient_id</th>
+						<th>pharmacy_id</th>
+						<th>doctor_id</th>
+						<th>description</th>
+						<th>charge</th>
+						<th>date</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+					<tr>
+	          <td>512348</td>
+	          <td>1234</td>
+	          <td>5</td>
+						<td>5555</td>
+						<td>1112</td>
+						<td>Heart attack</td>
+						<td>$100.25</td>
+						<td>2022-02-05</td>
+	        </tr>
+	      </tbody>
+	    </table>
+		</div>
 	</div>
 	</body>
 
