@@ -4,17 +4,14 @@ CREATE TABLE Patient (
     patient_first_name varchar(255) NOT NULL,
 	patient_last_name varchar(255) NOT NULL,
 	patient_birth date NOT NULL,
-	patient_address varchar(255) NOT NULL,
 	patient_email varchar(255) NOT NULL,
-	patient_contact varchar(255) NOT NULL
-	
+	patient_contact varchar(255) NOT NULL,
+	patient_address varchar(255) NOT NULL
 	) ENGINE=InnoDB;
 	
 LOCK TABLES `Patient` WRITE;
 /*!40000 ALTER TABLE `Patient` DISABLE KEYS */;
-INSERT INTO `Patient`(patient_first_name,patient_last_name,patient_birth,patient_address,patient_email,patient_contact) VALUES ('John','Cena','1969-4-20','7292 Dictum Av.
-San Antonio MI 47096','jcena@gmail.com','503-888-4432'),('Larry','David','1981-6-23','3748 Jorge St.
-Austin TX 28732','ldavid@gmail.com','222-345-6758');
+INSERT INTO `Patient`(patient_first_name,patient_last_name,patient_birth,patient_email,patient_contact,patient_address) VALUES ('John','Cena','1969-4-20','jcena@gmail.com','503-888-4432','San Antonio, MI'),('Larry','David','1981-6-23','ldavid@gmail.com','222-345-6758','Austin, TX');
 /*!40000 ALTER TABLE `Patient` ENABLE KEYS */;
 UNLOCK TABLES;	
 
@@ -43,7 +40,7 @@ CREATE TABLE Pharmacy (
 	) ENGINE=InnoDB;
 LOCK TABLES `Pharmacy` WRITE;
 /*!40000 ALTER TABLE `Pharmacy` DISABLE KEYS */;
-INSERT INTO `Pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland','334-233-4839'),('Fred Meyer Pharmacy','Corvallis','234-382-3938');
+INSERT INTO `Pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland, OR','334-233-4839'),('Fred Meyer Pharmacy','Corvallis, OR','234-382-3938');
 /*!40000 ALTER TABLE `Pharmacy` ENABLE KEYS */;
 UNLOCK TABLES;		
 

@@ -89,7 +89,7 @@ ALTER TABLE diagnosis AUTO_INCREMENT =1;
 DELETE from medication_pharmacy;
 ALTER TABLE medication_pharmacy AUTO_INCREMENT =1;
 
-INSERT INTO `Patient`(patient_first_name,patient_last_name,patient_birth,patient_address,patient_email,patient_contact) VALUES ('John','Cena','1969-4-20','Reno NV','jcena@gmail.com','contact1');
+INSERT INTO `Patient`(patient_first_name,patient_last_name,patient_birth,patient_email,patient_contact,patient_address) VALUES ('John','Cena','1969-4-20','jcena@gmail.com','contact1','Reno NV');
 
 INSERT INTO `Medication`(medication_name,manufacturer) VALUES ('Opium','LarryMeds'),('Marijuana','RiteAid');
 
