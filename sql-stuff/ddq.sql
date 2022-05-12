@@ -1,36 +1,36 @@
-DROP TABLE IF EXISTS `Patient`;
-CREATE TABLE Patient (
+DROP TABLE IF EXISTS `patient`;
+CREATE TABLE patient (
     patient_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
     patient_first_name varchar(255) NOT NULL,
 	patient_last_name varchar(255) NOT NULL,
 	patient_birth date NOT NULL,
+    patient_address varchar(255) NOT NULL,
 	patient_email varchar(255) NOT NULL,
-	patient_contact varchar(255) NOT NULL,
-	patient_address varchar(255) NOT NULL
+	patient_contact varchar(255) NOT NULL
 	) ENGINE=InnoDB;
 	
-LOCK TABLES `Patient` WRITE;
-/*!40000 ALTER TABLE `Patient` DISABLE KEYS */;
-INSERT INTO `Patient`(patient_first_name,patient_last_name,patient_birth,patient_email,patient_contact,patient_address) VALUES ('John','Cena','1969-4-20','jcena@gmail.com','503-888-4432','San Antonio, MI'),('Larry','David','1981-6-23','ldavid@gmail.com','222-345-6758','Austin, TX');
-/*!40000 ALTER TABLE `Patient` ENABLE KEYS */;
+LOCK TABLES `patient` WRITE;
+/*!40000 ALTER TABLE `patient` DISABLE KEYS */;
+INSERT INTO `patient`(patient_first_name,patient_last_name,patient_birth,patient_address,patient_email,patient_contact) VALUES ('John','Cena','1969-4-20','7292 Dictum Av.San Antonio MI 47096','jcena@gmail.com','503-888-4432'),('Larry','David','1981-6-23','3748 Jorge St.Austin TX 28732','ldavid@gmail.com','222-345-6758');
+/*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;	
 
-DROP TABLE IF EXISTS `Medication`;
-CREATE TABLE Medication (
+DROP TABLE IF EXISTS `medication`;
+CREATE TABLE medication (
     medication_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
     medication_name varchar(255) NOT NULL,
 	manufacturer varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
 	
-LOCK TABLES `Medication` WRITE;
-/*!40000 ALTER TABLE `Medication` DISABLE KEYS */;
-INSERT INTO `Medication`(medication_name,manufacturer) VALUES ('Opium','LarryMeds'),('Marijuana','RiteAid');
-/*!40000 ALTER TABLE `Medication` ENABLE KEYS */;
+LOCK TABLES `medication` WRITE;
+/*!40000 ALTER TABLE `medication` DISABLE KEYS */;
+INSERT INTO `medication`(medication_name,manufacturer) VALUES ('Opium','LarryMeds'),('Marijuana','RiteAid');
+/*!40000 ALTER TABLE `medication` ENABLE KEYS */;
 UNLOCK TABLES;	
 	
-DROP TABLE IF EXISTS `Pharmacy`;
-CREATE TABLE Pharmacy (
+DROP TABLE IF EXISTS `pharmacy`;
+CREATE TABLE pharmacy (
     pharmacy_id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
 
     pharmacy_name varchar(255) NOT NULL,
@@ -38,10 +38,10 @@ CREATE TABLE Pharmacy (
 	pharmacy_contact varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
-LOCK TABLES `Pharmacy` WRITE;
-/*!40000 ALTER TABLE `Pharmacy` DISABLE KEYS */;
-INSERT INTO `Pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland, OR','334-233-4839'),('Fred Meyer Pharmacy','Corvallis, OR','234-382-3938');
-/*!40000 ALTER TABLE `Pharmacy` ENABLE KEYS */;
+LOCK TABLES `pharmacy` WRITE;
+/*!40000 ALTER TABLE `pharmacy` DISABLE KEYS */;
+INSERT INTO `pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland, OR','334-233-4839'),('Fred Meyer Pharmacy','Corvallis','234-382-3938');
+/*!40000 ALTER TABLE `pharmacy` ENABLE KEYS */;
 UNLOCK TABLES;		
 
 DROP TABLE IF EXISTS `medication_pharmacy`;
@@ -50,8 +50,8 @@ CREATE TABLE `medication_pharmacy` (
 	medication_id int UNIQUE NOT NULL,
 	pharmacy_id int UNIQUE NOT NULL,
 	PRIMARY KEY (medication_id, pharmacy_id,medication_pharmacy_id),
-	FOREIGN KEY(`medication_id`) REFERENCES `Medication` (`medication_id`) ON DELETE CASCADE,
-	FOREIGN KEY(`pharmacy_id`) REFERENCES `Pharmacy` (`pharmacy_id`) ON DELETE CASCADE
+	FOREIGN KEY(`medication_id`) REFERENCES `medication` (`medication_id`) ON DELETE CASCADE,
+	FOREIGN KEY(`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE CASCADE
 	) ENGINE=InnoDB;
 
 LOCK TABLES `medication_pharmacy` WRITE;
@@ -60,18 +60,19 @@ INSERT INTO `medication_pharmacy`(medication_id,pharmacy_id) VALUES ('1','1');
 /*!40000 ALTER TABLE `medication_pharmacy` ENABLE KEYS */;
 UNLOCK TABLES;	
 	
-DROP TABLE IF EXISTS `Doctor`;
-CREATE TABLE Doctor (
+DROP TABLE IF EXISTS `doctor`;
+CREATE TABLE doctor (
     doctor_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
-    doctor_name varchar(255) NOT NULL,
+    doctor_first_name varchar(255) NOT NULL,
+	doctor_last_name varchar(255) NOT NULL,
 	doctor_contact varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
 	
-LOCK TABLES `Doctor` WRITE;
-/*!40000 ALTER TABLE `Doctor` DISABLE KEYS */;
-INSERT INTO `Doctor`(doctor_name,doctor_contact) VALUES ('Dr. Jonathan Kingsley','493-232-1023'),('Dr. Mary Jane','420-666-6969');
-/*!40000 ALTER TABLE `Doctor` ENABLE KEYS */;
+LOCK TABLES `doctor` WRITE;
+/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES ('Jonathan','Kingsley','493-232-1023'),('Mary','Jane','420-666-6969');
+/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;	
 	
 DROP TABLE IF EXISTS `diagnosis`;
@@ -84,10 +85,10 @@ CREATE TABLE diagnosis (
 	description varchar(255),
 	charge int,
 	diagnosis_date date,
-	CONSTRAINT FOREIGN KEY (`medication_id`) REFERENCES `Medication` (`medication_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT FOREIGN KEY (`patient_id`) REFERENCES `Patient` (`patient_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`doctor_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT FOREIGN KEY (`pharmacy_id`) REFERENCES `Pharmacy` (`pharmacy_id`) ON DELETE SET NULL ON UPDATE CASCADE
+	CONSTRAINT FOREIGN KEY (`medication_id`) REFERENCES `medication` (`medication_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`doctor_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE SET NULL ON UPDATE CASCADE
 
 ) ENGINE=InnoDB;
 	

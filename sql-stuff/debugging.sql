@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS `medication_pharmacy`;
-DROP TABLE IF EXISTS `Patient`;
-DROP TABLE IF EXISTS `Medication`;
-DROP TABLE IF EXISTS `Pharmacy`;
-DROP TABLE IF EXISTS `Doctor`;
+DROP TABLE IF EXISTS `patient`;
+DROP TABLE IF EXISTS `medication`;
+DROP TABLE IF EXISTS `pharmacy`;
+DROP TABLE IF EXISTS `doctor`;
 DROP TABLE IF EXISTS `diagnosis`;
 
-CREATE TABLE Patient (
+CREATE TABLE patient (
     patient_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
     patient_first_name varchar(255) NOT NULL,
 	patient_last_name varchar(255) NOT NULL,
@@ -16,7 +16,7 @@ CREATE TABLE Patient (
 	
 	) ENGINE=InnoDB;
 	
-CREATE TABLE Pharmacy (
+CREATE TABLE pharmacy (
     pharmacy_id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
 
     pharmacy_name varchar(255) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE Pharmacy (
 	
 	) ENGINE=InnoDB;
 	
-CREATE TABLE Medication (
+CREATE TABLE medication (
     medication_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
     medication_name varchar(255) NOT NULL,
 	manufacturer varchar(255) NOT NULL
@@ -36,14 +36,15 @@ CREATE TABLE `medication_pharmacy` (
 	medication_pharmacy_id int AUTO_INCREMENT UNIQUE NOT NULL,
 	medication_id int UNIQUE NOT NULL,
 	pharmacy_id int UNIQUE NOT NULL,
-	PRIMARY KEY (medication_id, pharmacy_id,medication_pharmacy_id),
-	FOREIGN KEY(`medication_id`) REFERENCES `Medication` (`medication_id`) ON DELETE CASCADE,
-	FOREIGN KEY(`pharmacy_id`) REFERENCES `Pharmacy` (`pharmacy_id`) ON DELETE CASCADE
+	PRIMARY KEY (medication_id, pharmacy_id, medication_pharmacy_id),
+	FOREIGN KEY(`medication_id`) REFERENCES `medication` (`medication_id`) ON DELETE CASCADE,
+	FOREIGN KEY(`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE CASCADE
 	) ENGINE=InnoDB;
 	
-CREATE TABLE Doctor (
+CREATE TABLE doctor (
     doctor_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
-    doctor_name varchar(255) NOT NULL,
+    doctor_first_name varchar(255) NOT NULL,
+	doctor_last_name varchar(255) NOT NULL,
 	doctor_contact varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
@@ -57,31 +58,31 @@ CREATE TABLE diagnosis (
 	description varchar(255),
 	charge int,
 	diagnosis_date date,
-	CONSTRAINT FOREIGN KEY (`medication_id`) REFERENCES `Medication` (`medication_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT FOREIGN KEY (`patient_id`) REFERENCES `Patient` (`patient_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT FOREIGN KEY (`doctor_id`) REFERENCES `Doctor` (`doctor_id`) ON DELETE SET NULL ON UPDATE CASCADE,
-	CONSTRAINT FOREIGN KEY (`pharmacy_id`) REFERENCES `Pharmacy` (`pharmacy_id`) ON DELETE SET NULL ON UPDATE CASCADE
+	CONSTRAINT FOREIGN KEY (`medication_id`) REFERENCES `medication` (`medication_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (`patient_id`) REFERENCES `patient` (`patient_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`doctor_id`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE SET NULL ON UPDATE CASCADE
 
 ) ENGINE=InnoDB;
 	
-DESCRIBE Patient;
-DESCRIBE Medication;
-DESCRIBE Pharmacy;
-DESCRIBE Doctor;
+DESCRIBE patient;
+DESCRIBE medication;
+DESCRIBE pharmacy;
+DESCRIBE doctor;
 DESCRIBE medication_pharmacy;
 DESCRIBE diagnosis;
 
-DELETE from Patient;
-ALTER TABLE Patient AUTO_INCREMENT =1;
+DELETE from patient;
+ALTER TABLE patient AUTO_INCREMENT =1;
 
-DELETE from Medication;
-ALTER TABLE Medication AUTO_INCREMENT =1;
+DELETE from medication;
+ALTER TABLE medication AUTO_INCREMENT =1;
 
-DELETE from Doctor;
-ALTER TABLE Doctor AUTO_INCREMENT =1;
+DELETE from doctor;
+ALTER TABLE doctor AUTO_INCREMENT =1;
 
-DELETE from Pharmacy;
-ALTER TABLE Pharmacy AUTO_INCREMENT =1;
+DELETE from pharmacy;
+ALTER TABLE pharmacy AUTO_INCREMENT =1;
 
 DELETE from diagnosis;
 ALTER TABLE diagnosis AUTO_INCREMENT =1;
@@ -89,23 +90,23 @@ ALTER TABLE diagnosis AUTO_INCREMENT =1;
 DELETE from medication_pharmacy;
 ALTER TABLE medication_pharmacy AUTO_INCREMENT =1;
 
-INSERT INTO `Patient`(patient_first_name,patient_last_name,patient_birth,patient_email,patient_contact,patient_address) VALUES ('John','Cena','1969-4-20','jcena@gmail.com','contact1','Reno NV');
+INSERT INTO `patient`(patient_first_name,patient_last_name,patient_birth,patient_address,patient_email,patient_contact) VALUES ('John','Cena','1969-4-20','Reno NV','jcena@gmail.com','contact1');
 
-INSERT INTO `Medication`(medication_name,manufacturer) VALUES ('Opium','LarryMeds'),('Marijuana','RiteAid');
+INSERT INTO `medication`(medication_name,manufacturer) VALUES ('Opium','LarryMeds'),('Marijuana','RiteAid');
 
-INSERT INTO `Doctor`(doctor_name,doctor_contact) VALUES ('Drsssssss','Kingsleys');
+INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES ('John','Smith','111-555-2222');
 
-INSERT INTO `Pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland','pharmacyline');
+INSERT INTO `pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland','340-546-1345');
 
 INSERT INTO `medication_pharmacy`(medication_id,pharmacy_id) VALUES ('1','1');
 
-INSERT INTO `diagnosis`(medication_id,patient_id,doctor_id,pharmacy_id,description,charge,diagnosis_date) VALUES ('1','1','1','1','He is sick','50','2020-4-18');
+INSERT INTO `diagnosis`(medication_id,patient_id,doctor_id,pharmacy_id,description,charge,diagnosis_date) VALUES ('1','1','1','1','He is sickkk','50','2020-4-18');
 
 
-SELECT * FROM Patient;
-SELECT * FROM Medication;
-SELECT * FROM Doctor;
-SELECT * FROM Pharmacy;
+SELECT * FROM patient;
+SELECT * FROM medication;
+SELECT * FROM doctor;
+SELECT * FROM pharmacy;
 SELECT * FROM medication_pharmacy;
 SELECT * FROM diagnosis;
 
