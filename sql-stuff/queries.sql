@@ -96,7 +96,7 @@ DELETE FROM medication_pharmacy WHERE medication_pharmacy_id = :medication_pharm
 
 --diagnosis entity
 
--- get all diagnosis personal information to populate the diagnosiss dropdown table
+-- get all diagnosis personal information to populate the diagnosis dropdown table
 SELECT * FROM diagnosis;
 
 -- get a single diagnosis's data for the Update diagnosis form

@@ -1,3 +1,5 @@
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0
+
 DROP TABLE IF EXISTS `patient`;
 CREATE TABLE patient (
     patient_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
@@ -50,8 +52,8 @@ CREATE TABLE `medication_pharmacy` (
 	medication_id int UNIQUE NOT NULL,
 	pharmacy_id int UNIQUE NOT NULL,
 	PRIMARY KEY (medication_id, pharmacy_id,medication_pharmacy_id),
-	FOREIGN KEY(`medication_id`) REFERENCES `medication` (`medication_id`) ON DELETE CASCADE,
-	FOREIGN KEY(`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE CASCADE
+	CONSTRAINT FOREIGN KEY(`medication_id`) REFERENCES `medication` (`medication_id`)  ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT FOREIGN KEY(`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`)  ON DELETE SET NULL ON UPDATE CASCADE
 	) ENGINE=InnoDB;
 
 LOCK TABLES `medication_pharmacy` WRITE;
