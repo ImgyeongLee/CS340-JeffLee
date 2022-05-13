@@ -1,4 +1,4 @@
---patient entity
+-- patient entity
 
 -- get all patient personal information to populate the patients dropdown table
 SELECT * FROM patient;
@@ -17,7 +17,7 @@ WHERE patient_id = :patient_ID_from_the_update_form;
 DELETE FROM patient WHERE patient_id = :patient_ID_selected_from_browse_patient_page;
 
 
---medication entity
+-- medication entity
 
 -- get all medication personal information to populate the medications dropdown table
 SELECT * FROM medication;
@@ -37,26 +37,7 @@ WHERE medication_id = :medication_ID_from_the_update_form;
 DELETE FROM medication WHERE medication_id = :medication_ID_selected_from_browse_medication_page;
 
 
---pharmacy entity
-
--- get all pharmacy personal information to populate the pharmacys dropdown table
-SELECT * FROM pharmacy;
-
--- get a single pharmacy's data for the Update pharmacy form
-SELECT * FROM pharmacy WHERE pharmacy_id = :pharmacy_ID_selected_from_browse_pharmacy_page;
-
--- add a new pharmacy
-INSERT INTO `pharmacy`(pharmacy_first_name,pharmacy_last_name,pharmacy_contact) VALUES (:pharmacy_first_nameInput,:pharmacy_last_nameInput,:pharmacy_contactInput);
-
--- update a pharmacy's data based on submission of the Update pharmacy form 
-UPDATE `pharmacy` SET pharmacy_first_name = :pharmacy_first_nameInput, pharmacy_last_name = :pharmacy_last_nameInput, pharmacy_contact = :pharmacy_contactInput
-WHERE pharmacy_id = :pharmacy_ID_from_the_update_form;
-
--- delete a pharmacy
-DELETE FROM pharmacy WHERE id = :pharmacy_ID_selected_from_browse_pharmacy_page;
-
-
---pharmacy entity
+-- pharmacy entity
 
 -- get all pharmacy personal information to populate the pharmacys dropdown table
 SELECT * FROM pharmacy;
@@ -75,7 +56,7 @@ WHERE pharmacy_id = :pharmacy_ID_from_the_update_form;
 DELETE FROM pharmacy WHERE pharmacy_id = :pharmacy_ID_selected_from_browse_pharmacy_page;
 
 
---medication_medication_pharmacy entity
+-- medication_pharmacy entity
 
 -- get all medication_pharmacy personal information to populate the medication_pharmacys dropdown table
 SELECT * FROM medication_pharmacy;
@@ -94,7 +75,7 @@ WHERE medication_pharmacy_id = :medication_pharmacy_ID_from_the_update_form;
 DELETE FROM medication_pharmacy WHERE medication_pharmacy_id = :medication_pharmacy_ID_selected_from_browse_medication_pharmacy_page;
 
 
---diagnosis entity
+-- diagnosis entity
 
 -- get all diagnosis personal information to populate the diagnosis dropdown table
 SELECT * FROM diagnosis;
