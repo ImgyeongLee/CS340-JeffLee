@@ -14,7 +14,7 @@
 		<header class="header-title"><i class="fa-solid fa-house-medical"></i>  JeffLee Hospital Website</header>
 		<div class="wrapper">
 		<section class="menu-bar"><ul>
-			<li><button onclick="goHome()" class="menu-button home-button" type="button">Home</button></li>
+      <li><button onclick="goHome()" class="menu-button home-button" type="button">Home</button></li>
 			<li><button onclick="goPatient()" class="menu-button" type="button">Patient</button></li>
 			<li><button onclick="goMedi()" class="menu-button" type="button">Medication</button></li>
 			<li><button onclick="goDiagnosis()" class="menu-button" type="button">Diagnosis</button></li>
@@ -24,7 +24,7 @@
 		</ul></section>
 
 		<main class="main-section">
-			<h1>Modify Doctor Entity</h1>
+			<h1>Modify Medicaton & Pharmacy Entity</h1>
 
 			<div class="function-container">
 					<button class="function-button" type="button" onclick="openInsert()">INSERT</button>
@@ -34,37 +34,36 @@
 			</div>
 
       <fieldset class="format" id="insert-box">
-        <legend class="format-label">INSERT (Doctor)</legend>
-      	<p class="format-header">Add a new Doctor data!</p>
+        <legend class="format-label">INSERT (Medicaton & Pharmacy)</legend>
+      	<p class="format-header">Add a new data!</p>
       	<div>
-					<label for="doctor">Doctor ID</label>
-        	<input type="textarea" class="input-box">
-        	<label for="doctor">Doctor Name</label>
-  				<input type="textarea" class="input-box">
-          <label for="doctor">Contact</label>
-  				<input type="textarea" class="input-box">
+          <label for="medication-ID">Medication ID</label>
+        	<input type="textarea" class="input-box" name="medication-ID">
+        	<label for="pharmacy-ID">Pharmacy ID</label>
+  				<input type="textarea" class="input-box" name="pharmacy-ID">
       	</div>
 				<p class="button-container"><input type="submit" value="Add" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeInsert()"></p>
 			</fieldset>
 
       <fieldset class="format" id="delete-box">
-        <legend class="format-label">DELETE (Doctor)</legend>
-      	<p class="format-header">Delete the Doctor data</p>
+        <legend class="format-label">DELETE (Medicaton & Pharmacy)</legend>
+      	<p class="format-header">Delete the data</p>
       	<div>
-          <label for="medication">Doctor ID</label>
-        	<input type="textarea" class="input-box">
+          <label for="medi-phar-ID">Medication & Pharmacy ID</label>
+        	<input type="textarea" class="input-box" name="medi-phar-ID">
       	</div>
 				<p class="button-container"><input type="submit" value="Delete" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeDelete()"></p>
   		</fieldset>
 
 			<fieldset class="format" id="search-box">
-        <legend class="format-label">SELECT (Doctor)</legend>
+        <legend class="format-label">SELECT (Medicaton & Pharmacy)</legend>
       	<div>
-					<select name="doctor" id="selection">
-  					<option value="option1">Doctor ID</option>
-  					<option value="option2">Doctor Name</option>
+					<select name="mediphar" id="selection">
+						<option value="option1">Medication & Pharmacy ID</option>
+  					<option value="option2">Medication ID</option>
+  					<option value="option3">Pharmacy ID</option>
 					</select>
 					<p><input type="textarea" class="search-input-box" placeholder="Type your input"></p>
       	</div>
@@ -73,41 +72,40 @@
   		</fieldset>
 
 			<fieldset class="format" id="update-box">
-        <legend class="format-label">UPDATE (Doctor)</legend>
-      	<p class="format-header">Update a Doctor data!</p>
+        <legend class="format-label">UPDATE (Patient)</legend>
+      	<p class="format-header">Update a data!</p>
       	<div>
-					<label for="doctor">Doctor ID</label>
-        	<input type="textarea" class="input-box">
-        	<label for="doctor">Doctor Name</label>
-  				<input type="textarea" class="input-box">
-          <label for="doctor">Contact</label>
-  				<input type="textarea" class="input-box">
+          <label for="medi-phar-ID">Medication & Pharmacy ID</label>
+        	<input type="textarea" class="input-box" name="medi-phar-ID">
+          <label for="medication-ID">Medication ID</label>
+        	<input type="textarea" class="input-box" name="medication-ID">
+        	<label for="pharmacy-ID">Pharmacy ID</label>
+  				<input type="textarea" class="input-box" name="pharmacy-ID">
       	</div>
   			<p class="button-container"><input type="submit" value="Update" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeUpdate()"></p>
   		</fieldset>
 
 		</main>
-
 		<div class="table-container">
-			<table class="doctor-table">
+			<table class="patient-table">
 	      <thead class="table-header">
-	        <tr>
-	          <th>doctor_id*</th>
-	          <th>doctor_name</th>
-	          <th>doctor_contact</th>
-	        </tr>
-	      </thead>
-	      <tbody>
-					<tr>
-	          <td>1112</td>
-	          <td>Brian Smith</td>
-	          <td>000-000-0000</td>
-	        </tr>
+          <tr>
+  					<th>medication_pharmacy_id*</th>
+  					<th>medication_id</th>
+  					<th>pharmacy_id</th>
+  				</tr>
+  			</thead>
+  			<tbody>
+  				<tr>
+  					<td>1</td>
+  					<td>1234</td>
+  					<td>5555</td>
+  				</tr>
 	      </tbody>
 	    </table>
 		</div>
-		</div>
+	</div>
 	</body>
 
 </html>

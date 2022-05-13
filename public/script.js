@@ -28,6 +28,11 @@ function goPharm() {
   window.location.href = link;
 }
 
+function goMediphar() {
+  var link = "./mediphar.html";
+  window.location.href = link;
+}
+
 function openInsert() {
   document.getElementById('insert-box').style.display="block"
 }
