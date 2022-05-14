@@ -50,9 +50,14 @@
         <legend class="format-label">DELETE (Medicaton & Pharmacy)</legend>
       	<p class="format-header">Delete the data</p>
       	<div>
-          <label for="medi-phar-ID">Medication & Pharmacy ID</label>
+          <label for="medi-phar-ID">Medication ID</label>
         	<input type="textarea" class="input-box" name="medi-phar-ID">
       	</div>
+				<p>OR</p>
+				<div>
+					<label for="medi-phar-ID">Pharmacy ID</label>
+        	<input type="textarea" class="input-box" name="medi-phar-ID">
+				</div>
 				<p class="button-container"><input type="submit" value="Delete" class="modal-button">
 					<input type="submit" value="Cancel" class="cancel-button" onclick="closeDelete()"></p>
   		</fieldset>
@@ -61,9 +66,8 @@
         <legend class="format-label">SELECT (Medicaton & Pharmacy)</legend>
       	<div>
 					<select name="mediphar" id="selection">
-						<option value="option1">Medication & Pharmacy ID</option>
-  					<option value="option2">Medication ID</option>
-  					<option value="option3">Pharmacy ID</option>
+  					<option value="option1">Medication ID</option>
+  					<option value="option2">Pharmacy ID</option>
 					</select>
 					<p><input type="textarea" class="search-input-box" placeholder="Type your input"></p>
       	</div>
@@ -75,8 +79,6 @@
         <legend class="format-label">UPDATE (Patient)</legend>
       	<p class="format-header">Update a data!</p>
       	<div>
-          <label for="medi-phar-ID">Medication & Pharmacy ID</label>
-        	<input type="textarea" class="input-box" name="medi-phar-ID">
           <label for="medication-ID">Medication ID</label>
         	<input type="textarea" class="input-box" name="medication-ID">
         	<label for="pharmacy-ID">Pharmacy ID</label>
@@ -91,14 +93,12 @@
 			<table class="patient-table">
 	      <thead class="table-header">
           <tr>
-  					<th>medication_pharmacy_id*</th>
   					<th>medication_id</th>
   					<th>pharmacy_id</th>
   				</tr>
   			</thead>
   			<tbody>
   				<tr>
-  					<td>1</td>
   					<td>1234</td>
   					<td>5555</td>
   				</tr>
