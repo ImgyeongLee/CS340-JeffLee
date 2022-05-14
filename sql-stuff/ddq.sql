@@ -48,10 +48,9 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `medication_pharmacy`;
 CREATE TABLE `medication_pharmacy` (
-	medication_pharmacy_id int AUTO_INCREMENT UNIQUE NOT NULL,
-	medication_id int UNIQUE NOT NULL,
-	pharmacy_id int UNIQUE NOT NULL,
-	PRIMARY KEY (medication_id, pharmacy_id,medication_pharmacy_id),
+	medication_id int NOT NULL,
+	pharmacy_id int NOT NULL,
+	PRIMARY KEY (medication_id, pharmacy_id),
 	CONSTRAINT FOREIGN KEY(`medication_id`) REFERENCES `medication` (`medication_id`) ON DELETE CASCADE,
 	CONSTRAINT FOREIGN KEY(`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`)  ON DELETE CASCADE
 	) ENGINE=InnoDB;

@@ -62,18 +62,17 @@ DELETE FROM pharmacy WHERE pharmacy_id = :pharmacy_ID_selected_from_browse_pharm
 SELECT * FROM medication_pharmacy;
 
 -- get a single medication_pharmacy's data for the Update medication_pharmacy form
-SELECT * FROM medication_pharmacy WHERE medication_pharmacy_id = :medication_pharmacy_ID_selected_from_browse_medication_pharmacy_page;
+SELECT * FROM medication_pharmacy WHERE medication_id = medication_ID_selected_from_browse_medication_pharmacy_page AND pharmacy_id = :pharmacy_ID_selected_from_browse_medication_pharmacy_page;
 
 -- add a new medication_pharmacy
-INSERT INTO `medication_pharmacy`(medication_id,medication_pharmacy_id) VALUES (:medication_idInput,:medication_pharmacy_idInput,);
+INSERT INTO `medication_pharmacy`(medication_id,pharmacy_id) VALUES (:medication_idInput,:pharmacy_idInput,);
 
 -- update a medication_pharmacy's data based on submission of the Update medication_pharmacy form 
 UPDATE `medication_pharmacy` SET medication_id = :medication_idInput, medication_pharmacy_id = medication_pharmacy_idInput
-WHERE medication_pharmacy_id = :medication_pharmacy_ID_from_the_update_form;
+WHERE medication_id = medication_ID_selected_from_browse_medication_pharmacy_page AND pharmacy_id = :pharmacy_ID_selected_from_browse_medication_pharmacy_page;
 
 -- delete a medication_pharmacy
-DELETE FROM medication_pharmacy WHERE medication_pharmacy_id = :medication_pharmacy_ID_selected_from_browse_medication_pharmacy_page;
-
+DELETE FROM medication_pharmacy WHERE medication_id = :medication_ID_selected_from_browse_medication_pharmacy_page AND pharmacy_id = :pharmacy_ID_selected_from_browse_medication_pharmacy_page;
 
 -- diagnosis entity
 
