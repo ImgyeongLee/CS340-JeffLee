@@ -98,7 +98,7 @@ INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES (
 
 INSERT INTO `pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','Portland','340-546-1345');
 
-INSERT INTO `medication_pharmacy`(medication_id,pharmacy_id) VALUES ('1','1');
+INSERT INTO `medication_pharmacy`(medication_id,pharmacy_id) VALUES ('2','2');
 
 INSERT INTO `diagnosis`(medication_id,patient_id,doctor_id,pharmacy_id,description,charge,diagnosis_date) VALUES ('1','1','1','1','He is sickkk','50','2020-4-18');
 
