@@ -85,7 +85,7 @@ ALTER TABLE doctor ADD UNIQUE (doctor_first_name,doctor_last_name,doctor_contact
 	
 LOCK TABLES `doctor` WRITE;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
-INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES ('Jonathan','Kingsley','493-232-1023'),('Mary','Jane','420-666-6969') ORDER BY doctor_id ASC;
+INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES ('Jonathan','Kingsley','493-232-1023'),('Mary','Jane','420-666-6969');
 
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;	
