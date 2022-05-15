@@ -1,5 +1,8 @@
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 
+-- drop diagnosis here to prevent error
+DROP TABLE IF EXISTS `diagnosis`;
+
 DROP TABLE IF EXISTS `patient`;
 CREATE TABLE patient (
     patient_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
@@ -90,7 +93,6 @@ INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES (
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;	
 	
-DROP TABLE IF EXISTS `diagnosis`;
 CREATE TABLE diagnosis (
 	diagnosis_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
 	medication_id int,
@@ -115,4 +117,3 @@ LOCK TABLES `diagnosis` WRITE;
 INSERT INTO `diagnosis`(medication_id,patient_id,doctor_id,pharmacy_id,description,charge,diagnosis_date) VALUES ('1','1','1','1','AIDS','5000','2020-4-18'),('2','2','2','2','Malaria','200','2020-5-19');
 /*!40000 ALTER TABLE `diagnosis` ENABLE KEYS */;
 UNLOCK TABLES;	
-
