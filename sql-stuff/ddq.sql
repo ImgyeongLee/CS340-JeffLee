@@ -11,6 +11,9 @@ CREATE TABLE patient (
 	patient_contact varchar(255) NOT NULL
 	) ENGINE=InnoDB;
 	
+--new entity entries with some but not all duplicate attributes can be added (distinct)
+ALTER TABLE patient ADD UNIQUE (patient_first_name,patient_last_name,patient_birth,patient_address,patient_email,patient_contact);
+	
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
 INSERT INTO `patient`(patient_first_name,patient_last_name,patient_birth,patient_address,patient_email,patient_contact) VALUES ('John','Cena','1969-4-20','7292 SW Dictum Av. San Antonio MI 47096','jcena@gmail.com','503-888-4432'),('Larry','David','1981-6-23','3748 NW Jorge St. Austin TX 28732','ldavid@gmail.com','222-345-6758');
@@ -24,6 +27,9 @@ CREATE TABLE medication (
 	manufacturer varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
+	
+--new entity entries with some but not all duplicate attributes can be added (distinct)
+ALTER TABLE medication ADD UNIQUE (medication_name,manufacturer);
 	
 LOCK TABLES `medication` WRITE;
 /*!40000 ALTER TABLE `medication` DISABLE KEYS */;
@@ -40,6 +46,10 @@ CREATE TABLE pharmacy (
 	pharmacy_contact varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
+
+--new entity entries with some but not all duplicate attributes can be added (distinct)
+ALTER TABLE pharmacy ADD UNIQUE (pharmacy_name,pharmacy_address,pharmacy_contact);
+	
 LOCK TABLES `pharmacy` WRITE;
 /*!40000 ALTER TABLE `pharmacy` DISABLE KEYS */;
 INSERT INTO `pharmacy`(pharmacy_name,pharmacy_address,pharmacy_contact) VALUES ('Wallgreens','2293 SE Jefferson St. Portland, OR','334-233-4839'),('Fred Meyer Pharmacy','3354 SW Washington Ave. Corvallis','234-382-3938');
@@ -69,10 +79,14 @@ CREATE TABLE doctor (
 	doctor_contact varchar(255) NOT NULL
 	
 	) ENGINE=InnoDB;
+
+--facillitate only allowing distinct doctor entries to be added
+ALTER TABLE doctor ADD UNIQUE (doctor_first_name,doctor_last_name,doctor_contact);
 	
 LOCK TABLES `doctor` WRITE;
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
-INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES ('Jonathan','Kingsley','493-232-1023'),('Mary','Jane','420-666-6969');
+INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES ('Jonathan','Kingsley','493-232-1023'),('Mary','Jane','420-666-6969') ORDER BY doctor_id ASC;
+
 /*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
 UNLOCK TABLES;	
 	
@@ -92,6 +106,9 @@ CREATE TABLE diagnosis (
 	CONSTRAINT FOREIGN KEY (`pharmacy_id`) REFERENCES `pharmacy` (`pharmacy_id`) ON DELETE SET NULL ON UPDATE CASCADE
 
 ) ENGINE=InnoDB;
+	
+--new entity entries with some but not all duplicate attributes can be added (distinct)
+ALTER TABLE diagnosis ADD UNIQUE (medication_id,patient_id,doctor_id,pharmacy_id,description,charge,diagnosis_date);
 	
 LOCK TABLES `diagnosis` WRITE;
 /*!40000 ALTER TABLE `diagnosis` DISABLE KEYS */;

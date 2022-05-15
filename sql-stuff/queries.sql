@@ -1,7 +1,7 @@
 -- patient entity
 
 -- get all patient personal information to populate the patients dropdown table
-SELECT * FROM patient;
+SELECT * FROM patient ORDER BY patient_id;
 
 -- get a single patient's data for the Update Patient form
 SELECT * FROM patient WHERE patient_id = :patient_id_selected_from_browse_patient_page;
@@ -20,7 +20,7 @@ DELETE FROM patient WHERE patient_id = :patient_id_selected_from_browse_patient_
 -- medication entity
 
 -- get all medication personal information to populate the medications dropdown table
-SELECT * FROM medication;
+SELECT * FROM medication ORDER BY medication_id;
 
 -- get a single medication's data for the Update medication form
 SELECT * FROM medication WHERE medication_id = :medication_id_selected_from_browse_medication_page;
@@ -40,7 +40,7 @@ DELETE FROM medication WHERE medication_id = :medication_id_selected_from_browse
 -- pharmacy entity
 
 -- get all pharmacy personal information to populate the pharmacys dropdown table
-SELECT * FROM pharmacy;
+SELECT * FROM pharmacy ORDER BY pharmacy_id;
 
 -- get a single pharmacy's data for the Update pharmacy form
 SELECT * FROM pharmacy WHERE pharmacy_id = :pharmacy_id_selected_from_browse_pharmacy_page;
@@ -74,10 +74,30 @@ WHERE medication_id = medication_id_selected_from_browse_medication_pharmacy_pag
 -- delete a medication_pharmacy
 DELETE FROM medication_pharmacy WHERE medication_id = :medication_id_selected_from_browse_medication_pharmacy_page AND pharmacy_id = :pharmacy_id_selected_from_browse_medication_pharmacy_page;
 
+
+-- doctor entity
+
+-- get all doctor personal information to populate the doctors dropdown table
+SELECT * FROM doctor ORDER BY doctor_id;
+
+-- get a single doctor's data for the Update doctor form
+SELECT * FROM doctor WHERE doctor_id = :doctor_id_selected_from_browse_doctor_page;
+
+-- add a new doctor
+INSERT INTO `doctor`(doctor_first_name,doctor_last_name,doctor_contact) VALUES (:doctor_first_nameInput,:doctor_last_nameInput,:doctor_contactInput);
+
+-- update a doctor's data based on submission of the Update doctor form 
+UPDATE `doctor` SET doctor_first_name = :doctor_first_nameInput, doctor_last_name = :doctor_last_nameInput, doctor_contact = :doctor_contactInput
+WHERE doctor_id = :doctor_id_from_the_update_form;
+
+-- delete a doctor
+DELETE FROM doctor WHERE doctor_id = :doctor_id_selected_from_browse_doctor_page;
+
+
 -- diagnosis entity
 
 -- get all diagnosis personal information to populate the diagnosis dropdown table
-SELECT * FROM diagnosis;
+SELECT * FROM diagnosis ORDER BY diagnosis_id;
 
 -- get a single diagnosis's data for the Update diagnosis form
 SELECT * FROM diagnosis WHERE diagnosis_id = :diagnosis_id_selected_from_browse_diagnosis_page;
