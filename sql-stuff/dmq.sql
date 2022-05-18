@@ -1,7 +1,7 @@
 -- patient entity
 
 -- get all patient personal information to populate the patients dropdown table
-SELECT * FROM patient ORDER BY patient_id;
+SELECT * FROM patient;
 
 -- get a single patient's data for the Update Patient form
 SELECT * FROM patient WHERE patient_id = :patient_id_selected_from_browse_patient_page;
@@ -20,7 +20,7 @@ DELETE FROM patient WHERE patient_id = :patient_id_selected_from_browse_patient_
 -- medication entity
 
 -- get all medication personal information to populate the medications dropdown table
-SELECT * FROM medication ORDER BY medication_id;
+SELECT * FROM medication;
 
 -- get a single medication's data for the Update medication form
 SELECT * FROM medication WHERE medication_id = :medication_id_selected_from_browse_medication_page;
@@ -40,7 +40,7 @@ DELETE FROM medication WHERE medication_id = :medication_id_selected_from_browse
 -- pharmacy entity
 
 -- get all pharmacy personal information to populate the pharmacys dropdown table
-SELECT * FROM pharmacy ORDER BY pharmacy_id;
+SELECT * FROM pharmacy;
 
 -- get a single pharmacy's data for the Update pharmacy form
 SELECT * FROM pharmacy WHERE pharmacy_id = :pharmacy_id_selected_from_browse_pharmacy_page;
@@ -57,6 +57,8 @@ DELETE FROM pharmacy WHERE pharmacy_id = :pharmacy_id_selected_from_browse_pharm
 
 
 -- medication_pharmacy entity
+-- Note: For the final website, the foreign keys of medication_id and pharmacy_id
+-- should be taken from existing values in medication and pharmacy entities, via dropdown menus
 
 -- get all medication_pharmacy personal information to populate the medication_pharmacys dropdown table
 SELECT * FROM medication_pharmacy;
@@ -78,7 +80,7 @@ DELETE FROM medication_pharmacy WHERE medication_id = :medication_id_selected_fr
 -- doctor entity
 
 -- get all doctor personal information to populate the doctors dropdown table
-SELECT * FROM doctor ORDER BY doctor_id;
+SELECT * FROM doctor;
 
 -- get a single doctor's data for the Update doctor form
 SELECT * FROM doctor WHERE doctor_id = :doctor_id_selected_from_browse_doctor_page;
@@ -95,9 +97,11 @@ DELETE FROM doctor WHERE doctor_id = :doctor_id_selected_from_browse_doctor_page
 
 
 -- diagnosis entity
+-- Note: For the final website, the foreign keys of medication_id, pharmacy_id, patient_id, doctor_id
+-- should be taken from existing values in medication and pharmacy entities, via dropdown menus
 
 -- get all diagnosis personal information to populate the diagnosis dropdown table
-SELECT * FROM diagnosis ORDER BY diagnosis_id;
+SELECT * FROM diagnosis;
 
 -- get a single diagnosis's data for the Update diagnosis form
 SELECT * FROM diagnosis WHERE diagnosis_id = :diagnosis_id_selected_from_browse_diagnosis_page;

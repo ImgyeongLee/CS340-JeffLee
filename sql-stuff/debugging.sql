@@ -1,9 +1,9 @@
+DROP TABLE IF EXISTS `diagnosis`;
 DROP TABLE IF EXISTS `medication_pharmacy`;
 DROP TABLE IF EXISTS `patient`;
 DROP TABLE IF EXISTS `medication`;
 DROP TABLE IF EXISTS `pharmacy`;
 DROP TABLE IF EXISTS `doctor`;
-DROP TABLE IF EXISTS `diagnosis`;
 
 CREATE TABLE patient (
     patient_id int AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
